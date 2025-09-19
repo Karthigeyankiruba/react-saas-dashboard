@@ -1,0 +1,52 @@
+{
+  "name": "@optiaxiom/globals",
+  "homepage": "https://github.com/optimizely-axiom/optiaxiom/tree/master/packages/globals#readme",
+  "repository": {
+    "directory": "packages/globals",
+    "type": "git",
+    "url": "git+https://github.com/optimizely-axiom/optiaxiom.git"
+  },
+  "type": "module",
+  "version": "1.0.8",
+  "files": [
+    "dist/**",
+    "LICENSE"
+  ],
+  "license": "Apache-2.0",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./fonts": {
+      "import": "./dist/esm/fonts.js",
+      "require": "./dist/cjs/fonts.js"
+    }
+  },
+  "sideEffects": [
+    "./dist/cjs/fonts.js",
+    "./dist/esm/fonts.js"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist && NODE_ENV=production rollup -c",
+    "dev": "rm -rf dist && rollup -cw",
+    "lint": "oas-lint",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@fontsource-variable/fira-code": "^5.2.6",
+    "@radix-ui/react-context": "^1.1.2",
+    "inter-ui": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vanilla-extract/css": "^1.17.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "peerDependencies": {
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-dom": "^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+  }
+}
