@@ -2,12 +2,10 @@ import {
   Box,
   Flex,
   Text,
-  Button,
   Input,
   DataTable,
   DataTableBody,
   DataTableFooter,
-  Pagination,
 } from "@optiaxiom/react";
 import { Plus, Filter, ArrowUpDown, Search } from "lucide-react";
 import {
@@ -35,7 +33,7 @@ const OrderList = () => {
       globalFilter,
     },
     onGlobalFilterChange: setGlobalFilter,
-    globalFilterFn: (row, columnId, value) => {
+    globalFilterFn: (row, value) => {
       const search = value.toLowerCase();
       const item = row.original;
 

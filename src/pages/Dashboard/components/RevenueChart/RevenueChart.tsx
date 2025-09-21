@@ -8,7 +8,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
-import { Box, Text, Flex } from "@optiaxiom/react";
+import { Box, Text } from "@optiaxiom/react";
 import { revenueChart } from "./RevenueChart.css";
 
 const data = [

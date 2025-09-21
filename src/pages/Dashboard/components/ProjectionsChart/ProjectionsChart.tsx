@@ -8,7 +8,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
-import { Box, Card, Heading, Text } from "@optiaxiom/react";
+import { Box, Card, Text } from "@optiaxiom/react";
 import { projectionsChart } from "./ProjectionsChart.css";
 
 const data = [

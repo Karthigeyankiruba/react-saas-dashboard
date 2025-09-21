@@ -1,6 +1,6 @@
 import { createColumnHelper } from "@tanstack/react-table";
-import { Box, Flex, Text, Avatar, Button, Checkbox } from "@optiaxiom/react";
-import { Calendar, MoreHorizontal } from "lucide-react";
+import { Box, Flex, Text, Avatar, Checkbox } from "@optiaxiom/react";
+import { Calendar } from "lucide-react";
 import { badge } from "./OrderList.css";
 
 type Order = {

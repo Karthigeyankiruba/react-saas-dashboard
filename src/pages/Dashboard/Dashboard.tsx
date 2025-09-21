@@ -1,4 +1,4 @@
-import { Flex, Grid, Heading, Text } from "@optiaxiom/react";
+import { Flex, Grid, Text } from "@optiaxiom/react";
 import { MetricsGrid } from "./components/MetricsGrid";
 import { ProjectionsChart } from "./components/ProjectionsChart";
 import { RevenueCard } from "./components/RevenueCard";

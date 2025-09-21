@@ -47,15 +47,6 @@ export const topSellingProducts = {
 
   dataRow: style({
     border: 'none',
-    '& td': {
-      padding: '16px 12px !important',
-      verticalAlign: 'top !important',
-      lineHeight: '1.5 !important',
-    },
-    '& td:nth-child(1)': { width: '40%' },
-    '& td:nth-child(2)': { width: '20%' },
-    '& td:nth-child(3)': { width: '20%' },
-    '& td:nth-child(4)': { width: '20%' },
   }),
 
   nameCell: style({
