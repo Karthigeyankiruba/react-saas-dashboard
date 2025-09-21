@@ -41,6 +41,7 @@ const OrderList = () => {
     },
     onGlobalFilterChange: setGlobalFilter,
     onPaginationChange: setPagination,
+    // @ts-ignore
     globalFilterFn: (row, columnId, value) => {
       const search = String(value).toLowerCase();
       const item = row.original;
