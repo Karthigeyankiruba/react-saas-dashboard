@@ -153,10 +153,12 @@ select {
 /* Sidebar styling */
 [data-sidebar] {
   background-color: var(--bg-primary) !important;
+  transition: width 0.3s ease, min-width 0.3s ease !important;
 }
 
 [data-sidebar] nav {
   background-color: var(--bg-primary) !important;
+  transition: width 0.3s ease, min-width 0.3s ease !important;
 }
 
 /* Sidebar text colors */

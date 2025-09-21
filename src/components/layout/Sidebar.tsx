@@ -26,14 +26,23 @@ import {
   PanelLeft,
   MessagesSquare,
   PanelRight,
+  LayoutDashboard,
+  Megaphone,
+  FileText,
 } from "lucide-react";
 import * as styles from "../../styles/layout/Sidebar.css";
 
 export const AppSidebar: React.FC = () => {
   const [selected, setSelected] = useState("default");
+  const [isExpanded, setIsExpanded] = useState(true);
 
   return (
-    <Sidebar defaultExpanded className={styles.sidebar.container} data-sidebar>
+    <Sidebar
+      expanded={isExpanded}
+      onExpandedChange={setIsExpanded}
+      className={styles.sidebar.container}
+      data-sidebar
+    >
       <Nav px="20" className={styles.sidebar.nav}>
         {/* Header */}
         <Flex flexDirection="row" gap="12" alignItems="center">
@@ -41,19 +50,21 @@ export const AppSidebar: React.FC = () => {
             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face"
             size="lg"
           />
-          <Heading level="3">ByeWind</Heading>
+          {isExpanded && <Heading level="3">ByeWind</Heading>}
         </Flex>
 
         <NavBody gap="16">
           {/* Favorites & Recently */}
-          <Flex flexDirection="row" gap="16">
-            <Text color="fg.secondary" fontSize="lg">
-              Favorites
-            </Text>
-            <Text color="fg.disabled" fontSize="lg">
-              Recently
-            </Text>
-          </Flex>
+          {isExpanded && (
+            <Flex flexDirection="row" gap="16">
+              <Text color="fg.secondary" fontSize="lg">
+                Favorites
+              </Text>
+              <Text color="fg.disabled" fontSize="lg">
+                Recently
+              </Text>
+            </Flex>
+          )}
 
           <NavList>
             <NavItem
@@ -83,61 +94,60 @@ export const AppSidebar: React.FC = () => {
           </NavList>
 
           {/* Dashboards */}
-          <div>
+
+          <NavList gap="4">
             <Text size="sm" color="fg.secondary">
               Dashboards
             </Text>
-            <NavList gap="4">
-              <NavItem
-                icon={<ChartPie />}
-                active={selected === "default"}
-                onClick={() => setSelected("default")}
-                className={
-                  selected === "default"
-                    ? styles.sidebar.navItemActive
-                    : styles.sidebar.navItem
-                }
-              >
-                Default
-              </NavItem>
-              <NavItem
-                icon={<ShoppingBag />}
-                active={selected === "ecommerce-dashboard"}
-                onClick={() => setSelected("ecommerce-dashboard")}
-                className={
-                  selected === "ecommerce-dashboard"
-                    ? styles.sidebar.navItemActive
-                    : styles.sidebar.navItem
-                }
-              >
-                eCommerce
-              </NavItem>
-              <NavItem
-                icon={<FolderOpen />}
-                active={selected === "projects-dashboard"}
-                onClick={() => setSelected("projects-dashboard")}
-                className={
-                  selected === "projects-dashboard"
-                    ? styles.sidebar.navItemActive
-                    : styles.sidebar.navItem
-                }
-              >
-                Projects
-              </NavItem>
-              <NavItem
-                icon={<BookOpen />}
-                active={selected === "online-courses"}
-                onClick={() => setSelected("online-courses")}
-                className={
-                  selected === "online-courses"
-                    ? styles.sidebar.navItemActive
-                    : styles.sidebar.navItem
-                }
-              >
-                Online Courses
-              </NavItem>
-            </NavList>
-          </div>
+            <NavItem
+              icon={<ChartPie />}
+              active={selected === "default"}
+              onClick={() => setSelected("default")}
+              className={
+                selected === "default"
+                  ? styles.sidebar.navItemActive
+                  : styles.sidebar.navItem
+              }
+            >
+              Default
+            </NavItem>
+            <NavItem
+              icon={<ShoppingBag />}
+              active={selected === "ecommerce-dashboard"}
+              onClick={() => setSelected("ecommerce-dashboard")}
+              className={
+                selected === "ecommerce-dashboard"
+                  ? styles.sidebar.navItemActive
+                  : styles.sidebar.navItem
+              }
+            >
+              eCommerce
+            </NavItem>
+            <NavItem
+              icon={<FolderOpen />}
+              active={selected === "projects-dashboard"}
+              onClick={() => setSelected("projects-dashboard")}
+              className={
+                selected === "projects-dashboard"
+                  ? styles.sidebar.navItemActive
+                  : styles.sidebar.navItem
+              }
+            >
+              Projects
+            </NavItem>
+            <NavItem
+              icon={<BookOpen />}
+              active={selected === "online-courses"}
+              onClick={() => setSelected("online-courses")}
+              className={
+                selected === "online-courses"
+                  ? styles.sidebar.navItemActive
+                  : styles.sidebar.navItem
+              }
+            >
+              Online Courses
+            </NavItem>
+          </NavList>
 
           {/* Pages */}
           <NavList gap="4">
@@ -154,26 +164,30 @@ export const AppSidebar: React.FC = () => {
                   User Profile
                 </Flex>
               </NavGroupTrigger>
-              <NavGroupContent pl="24">
+              <NavGroupContent>
                 <NavItem
+                  icon={<LayoutDashboard size={16} />}
                   active={selected === "overview-page"}
                   onClick={() => setSelected("overview-page")}
                 >
                   Overview
                 </NavItem>
                 <NavItem
+                  icon={<Megaphone size={16} />}
                   active={selected === "campaigns"}
                   onClick={() => setSelected("campaigns")}
                 >
                   Campaigns
                 </NavItem>
                 <NavItem
+                  icon={<FileText size={16} />}
                   active={selected === "documents"}
                   onClick={() => setSelected("documents")}
                 >
                   Documents
                 </NavItem>
                 <NavItem
+                  icon={<Users size={16} />}
                   active={selected === "followers"}
                   onClick={() => setSelected("followers")}
                 >
@@ -195,7 +209,7 @@ export const AppSidebar: React.FC = () => {
                   Account
                 </Flex>
               </NavGroupTrigger>
-              <NavGroupContent pl="24">
+              <NavGroupContent>
                 <NavItem
                   active={selected === "account"}
                   onClick={() => setSelected("account")}
@@ -217,7 +231,7 @@ export const AppSidebar: React.FC = () => {
                   Corporate
                 </Flex>
               </NavGroupTrigger>
-              <NavGroupContent pl="24">
+              <NavGroupContent>
                 <NavItem
                   active={selected === "corporate"}
                   onClick={() => setSelected("corporate")}
@@ -239,7 +253,7 @@ export const AppSidebar: React.FC = () => {
                   Blog
                 </Flex>
               </NavGroupTrigger>
-              <NavGroupContent pl="24">
+              <NavGroupContent>
                 <NavItem
                   icon={<BookOpen size={16} />}
                   active={selected === "blog"}
@@ -262,7 +276,7 @@ export const AppSidebar: React.FC = () => {
                   Social
                 </Flex>
               </NavGroupTrigger>
-              <NavGroupContent pl="24">
+              <NavGroupContent>
                 <NavItem
                   icon={<BookOpen size={16} />}
                   active={selected === "social"}
@@ -274,7 +288,10 @@ export const AppSidebar: React.FC = () => {
             </NavGroup>
           </NavList>
 
-          <SidebarToggle icon={<PanelRight />} />
+          <SidebarToggle
+            icon={<PanelRight />}
+            onClick={() => setIsExpanded(!isExpanded)}
+          />
         </NavBody>
       </Nav>
     </Sidebar>

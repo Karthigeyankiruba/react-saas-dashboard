@@ -2,18 +2,15 @@ import { style } from "@vanilla-extract/css";
 
 export const sidebar = {
   container: style({
-    // backgroundColor: 'var(--bg-secondary) !important',
-    // borderRight: '1px solid var(--border-color) !important',
     color: 'var(--text-primary) !important',
-    // transition: 'background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease',
-    padding: '12px',
+
+    transition: 'width 0.3s ease, min-width 0.3s ease, opacity 0.3s ease',
   }),
 
   nav: style({
-    // backgroundColor: 'var(--bg-secondary) !important',
-    // transition: 'background-color 0.3s ease',
-      borderRight: '1px solid var(--border-color) !important',
-    width: '220px',
+    borderRight: '1px solid var(--border-color) !important',
+    // width: '220px',
+    transition: 'width 0.3s ease, min-width 0.3s ease, opacity 0.3s ease',
   }),
 
   navItem: style({
@@ -45,7 +42,7 @@ export const sidebar = {
 };
 
 export const sidebarGroupTriggerStyleContext = style({
-  marginLeft: "-14px",
+  // marginLeft: "-14px",
   color: 'var(--text-primary) !important',
   transition: 'color 0.3s ease',
 });
