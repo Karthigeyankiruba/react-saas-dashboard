@@ -45,7 +45,12 @@ export const AppSidebar: React.FC = () => {
     >
       <Nav px="20" className={styles.sidebar.nav}>
         {/* Header */}
-        <Flex flexDirection="row" gap="12" alignItems="center">
+        <Flex
+          flexDirection="row"
+          gap="12"
+          alignItems="center"
+          justifyContent={!isExpanded ? "center" : "flex-start"}
+        >
           <Avatar
             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face"
             size="lg"
