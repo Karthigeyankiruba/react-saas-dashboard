@@ -177,5 +177,5 @@ nav[aria-label="breadcrumb"] * {
 /* Card backgrounds */
 [class*="card"],
 [class*="Card"] {
-  background-color: var(--bg-card) !important;
+  /* background-color: var(--bg-card) !important; */
 }

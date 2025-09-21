@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const MetricsGrid = () => {
   const navigate = useNavigate();
   return (
-    <Grid gridTemplateColumns="2" gap="24">
+    <Grid gridTemplateColumns={{ base: "1", md: "2" }} gap="24">
       <MetricCard
         title="Customers"
         value="3,781"
@@ -20,7 +20,7 @@ const MetricsGrid = () => {
         value="1,219"
         description="-0.03%"
         icon={<TrendingDown size={14} />}
-        color="#F8F9FB"
+        color="var(--bg-card)"
         onClick={() => navigate("/order-list")}
       />
 
@@ -29,7 +29,7 @@ const MetricsGrid = () => {
         value="$695"
         description="+15.03%"
         icon={<TrendingUp size={14} />}
-        color="#F8F9FB"
+        color="var(--bg-card)"
       />
 
       <MetricCard

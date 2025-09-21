@@ -13,7 +13,7 @@ const Dashboard = () => {
         eCommerce
       </Heading>
 
-      <Grid gridTemplateColumns="2" gap="24">
+      <Grid gridTemplateColumns={{ base: "1", md: "2" }} gap="24">
         <MetricsGrid />
         <ProjectionsChart />
       </Grid>

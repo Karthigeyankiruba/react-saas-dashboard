@@ -7,11 +7,9 @@ interface MetricCardProps {
   value: string;
   description: string;
   icon: React.ReactNode;
-  color: "#E2F4FE" | "#F8F9FB";
+  color: "#E2F4FE" | "var(--bg-card)";
   onClick?: () => void;
 }
-
-// #E2F4FE
 
 const MetricCard = ({
   title,
@@ -22,7 +20,11 @@ const MetricCard = ({
   onClick,
 }: MetricCardProps) => {
   return (
-    <Card className={styles.metricCard} onClick={onClick}>
+    <Card
+      className={styles.metricCard}
+      onClick={onClick}
+      style={{ backgroundColor: color }}
+    >
       <CardHeader>
         <Text fontWeight="600" fontSize="xl" color="fg.avatar.neutral">
           {title}
