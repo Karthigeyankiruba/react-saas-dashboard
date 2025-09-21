@@ -40,57 +40,55 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export const RevenueChart: React.FC = () => {
   return (
-    <Box className={revenueChart.chartContainer}>
-      <ResponsiveContainer width="100%" height={340}>
-        <LineChart
-          data={data}
-          margin={{
-            top: 20,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid
-            strokeDasharray="0"
-            stroke="#f0f0f0"
-            horizontal={true}
-            vertical={true}
-          />
-          <XAxis
-            dataKey="month"
-            axisLine={{ stroke: "#e5e7eb", strokeWidth: 1 }}
-            tickLine={false}
-            tick={{ fontSize: 12, fill: "#666" }}
-          />
-          <YAxis
-            axisLine={false}
-            tickLine={false}
-            tick={{ fontSize: 12, fill: "#666" }}
-            tickFormatter={(value) => `${value}M`}
-            domain={[0, 30]}
-          />
-          <Tooltip content={<CustomTooltip />} />
-          <Line
-            type="monotone"
-            dataKey="currentWeek"
-            stroke="#000000"
-            strokeWidth={2}
-            strokeDasharray="0"
-            dot={false}
-            activeDot={{ r: 4, fill: "#000000" }}
-          />
-          <Line
-            type="monotone"
-            dataKey="previousWeek"
-            stroke="#87CEEB"
-            strokeWidth={2}
-            strokeDasharray="0"
-            dot={false}
-            activeDot={{ r: 4, fill: "#87CEEB" }}
-          />
-        </LineChart>
-      </ResponsiveContainer>
-    </Box>
+    <ResponsiveContainer width="100%" height={380}>
+      <LineChart
+        data={data}
+        margin={{
+          top: 20,
+          right: 30,
+          left: 20,
+          bottom: 5,
+        }}
+      >
+        <CartesianGrid
+          strokeDasharray="0"
+          stroke="var(--border-color)"
+          horizontal={true}
+          vertical={true}
+        />
+        <XAxis
+          dataKey="month"
+          axisLine={{ stroke: "var(--border-color)", strokeWidth: 1 }}
+          tickLine={false}
+          tick={{ fontSize: 12, fill: "var(--text-secondary)" }}
+        />
+        <YAxis
+          axisLine={false}
+          tickLine={false}
+          tick={{ fontSize: 12, fill: "var(--text-secondary)" }}
+          tickFormatter={(value) => `${value}M`}
+          domain={[0, 30]}
+        />
+        <Tooltip content={<CustomTooltip />} />
+        <Line
+          type="monotone"
+          dataKey="currentWeek"
+          stroke="#000000"
+          strokeWidth={2}
+          strokeDasharray="0"
+          dot={false}
+          activeDot={{ r: 4, fill: "#000000" }}
+        />
+        <Line
+          type="monotone"
+          dataKey="previousWeek"
+          stroke="#87CEEB"
+          strokeWidth={2}
+          strokeDasharray="0"
+          dot={false}
+          activeDot={{ r: 4, fill: "#87CEEB" }}
+        />
+      </LineChart>
+    </ResponsiveContainer>
   );
 };

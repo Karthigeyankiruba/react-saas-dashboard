@@ -57,10 +57,18 @@ export const TopSellingProducts: React.FC = () => {
       <Table className={topSellingProducts.table}>
         <TableHeader className={topSellingProducts.tableHeader}>
           <TableRow>
-            <TableHeaderCell>Name</TableHeaderCell>
-            <TableHeaderCell>Price</TableHeaderCell>
-            <TableHeaderCell>Quantity</TableHeaderCell>
-            <TableHeaderCell>Amount</TableHeaderCell>
+            <TableHeaderCell className={topSellingProducts.headerCell}>
+              Name
+            </TableHeaderCell>
+            <TableHeaderCell className={topSellingProducts.headerCell}>
+              Price
+            </TableHeaderCell>
+            <TableHeaderCell className={topSellingProducts.headerCell}>
+              Quantity
+            </TableHeaderCell>
+            <TableHeaderCell className={topSellingProducts.headerCell}>
+              Amount
+            </TableHeaderCell>
           </TableRow>
         </TableHeader>
 

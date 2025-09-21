@@ -15,17 +15,18 @@ export const revenueChart = {
   }),
 
   tooltip: style({
-    backgroundColor: '#ffffff',
-    border: '1px solid #e5e7eb',
+    backgroundColor: 'var(--bg-card)',
+    border: '1px solid var(--border-color)',
     borderRadius: '6px',
     padding: '12px',
     boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
     display: 'flex',
     flexDirection: 'column',
     gap: '4px',
-     minWidth: '140px',
+    minWidth: '140px',
     maxWidth: '220px',
     whiteSpace: 'nowrap',
+    color: 'var(--text-primary)',
   }),
 };
 

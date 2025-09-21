@@ -65,7 +65,7 @@ const RevenueLocation = () => {
       >
         <MapContainer
           center={[20, 0]}
-          zoom={2}
+          zoom={0}
           style={{ height: "200px", width: "100%", backgroundColor: "#f8f9fa" }}
           zoomControl={false}
           attributionControl={false}

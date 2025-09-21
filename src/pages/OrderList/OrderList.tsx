@@ -60,7 +60,7 @@ const OrderList = () => {
         alignItems="center"
         mb="24"
       >
-        <Text fontWeight="600" fontSize="xl" color="fg.avatar.neutral">
+        <Text fontWeight="600" fontSize="xl">
           Order List
         </Text>
       </Flex>

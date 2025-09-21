@@ -1,4 +1,4 @@
-import { Flex, Grid, Heading } from "@optiaxiom/react";
+import { Flex, Grid, Heading, Text } from "@optiaxiom/react";
 import { MetricsGrid } from "./components/MetricsGrid";
 import { ProjectionsChart } from "./components/ProjectionsChart";
 import { RevenueCard } from "./components/RevenueCard";
@@ -9,9 +9,9 @@ import { TotalSales } from "./components/TotalSales";
 const Dashboard = () => {
   return (
     <Flex gap="24" overflow="auto">
-      <Heading level="4" color="fg.accent.strong">
+      <Text fontWeight="600" fontSize="xl">
         eCommerce
-      </Heading>
+      </Text>
 
       <Grid gridTemplateColumns={{ base: "1", md: "2" }} gap="24">
         <MetricsGrid />

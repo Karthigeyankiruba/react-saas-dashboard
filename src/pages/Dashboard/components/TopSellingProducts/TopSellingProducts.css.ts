@@ -18,12 +18,13 @@ export const topSellingProducts = {
   }),
 
   tableHeader: style({
-    borderBottom: '1px solid #e5e7eb',
-    backgroundColor: 'transparent',
+    borderBottom: '1px solid var(--border-color)',
+    backgroundColor: 'var(--bg-primary)',
   }),
 
   headerCell: style({
-    backgroundColor: 'transparent !important',
+    backgroundColor: 'var(--bg-primary)',
+    color: 'var(--text-primary)',
   }),
 
 

@@ -23,7 +23,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Default styling */
+  /* CSS Custom Properties - Updated by ThemeContext */
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
   --bg-card: #f8f9fb;
@@ -34,12 +34,11 @@
 
   color: var(--text-primary);
   background-color: var(--bg-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 * {
   box-sizing: border-box;
-  transition: none !important;
-  animation: none !important;
 }
 
 body {
@@ -179,5 +178,234 @@ nav[aria-label="breadcrumb"] * {
 /* Card backgrounds */
 [class*="card"],
 [class*="Card"] {
-  /* background-color: var(--bg-card) !important; */
+  background-color: var(--bg-card) !important;
+}
+
+/* Theme overrides for Axiom components */
+[data-theme="dark"] {
+  /* Force text colors in dark mode */
+  [class*="text"],
+  [class*="Text"],
+  span:not([class*="icon"]):not([class*="Icon"]),
+  p,
+  div:not([class*="icon"]):not([class*="Icon"]),
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  td,
+  th,
+  label {
+    color: var(--text-primary) !important;
+  }
+
+  /* Table styling */
+  [class*="table"],
+  [class*="Table"],
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td {
+    background-color: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  /* Specific table header overrides - Maximum specificity */
+  [data-theme="dark"] [class*="TableHeader"],
+  [data-theme="dark"] [class*="tableHeader"],
+  [data-theme="dark"] [class*="TableHeaderCell"],
+  [data-theme="dark"] thead,
+  [data-theme="dark"] th,
+  [data-theme="dark"] table [class*="TableHeader"],
+  [data-theme="dark"] table [class*="TableHeaderCell"],
+  [data-theme="dark"] table thead,
+  [data-theme="dark"] table thead tr,
+  [data-theme="dark"] table thead tr th {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+  }
+
+  /* Force override any inline styles */
+  [data-theme="dark"] [style*="background-color"],
+  [data-theme="dark"] table [style*="background-color"] {
+    background-color: var(--bg-primary) !important;
+  }
+
+  /* Ultra-specific table header override */
+  [data-theme="dark"] div[class*="Card"] table thead,
+  [data-theme="dark"] div[class*="Card"] table thead tr,
+  [data-theme="dark"] div[class*="Card"] table thead tr th,
+  [data-theme="dark"] div[class*="card"] table thead,
+  [data-theme="dark"] div[class*="card"] table thead tr,
+  [data-theme="dark"] div[class*="card"] table thead tr th {
+    background-color: var(--bg-primary) !important;
+    background: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+  }
+
+  /* Nuclear option - override everything */
+  [data-theme="dark"] * {
+    --axiom-colors-bg-default: var(--bg-primary) !important;
+    --axiom-colors-bg-surface: var(--bg-primary) !important;
+    --axiom-colors-bg-subtle: var(--bg-primary) !important;
+  }
+
+  /* Target all possible table elements */
+  html[data-theme="dark"] table *,
+  html[data-theme="dark"] thead *,
+  html[data-theme="dark"] th,
+  body[data-theme="dark"] table *,
+  body[data-theme="dark"] thead *,
+  body[data-theme="dark"] th {
+    background-color: var(--bg-primary) !important;
+    background: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+  }
+
+  /* Chart text */
+  .recharts-text,
+  .recharts-label,
+  .recharts-legend-item-text,
+  .recharts-cartesian-axis-tick-value {
+    fill: var(--text-primary) !important;
+  }
+
+  /* Target Axiom Table components globally */
+  [data-theme="dark"] [data-scope="table"][data-part="header"],
+  [data-theme="dark"] [data-scope="table"][data-part="header-cell"],
+  [data-theme="dark"] [data-scope="table"] thead,
+  [data-theme="dark"] [data-scope="table"] thead tr,
+  [data-theme="dark"] [data-scope="table"] thead th,
+  [data-theme="dark"] [data-scope="table"] [role="columnheader"] {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+  }
+
+  /* Target by Axiom's CSS class patterns */
+  [data-theme="dark"] [class*="_table_"],
+  [data-theme="dark"] [class*="_tableHeader_"],
+  [data-theme="dark"] [class*="_tableHeaderCell_"],
+  [data-theme="dark"] [class*="table-header"],
+  [data-theme="dark"] [class*="TableHeader"],
+  [data-theme="dark"] [class*="TableHeaderCell"] {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+  }
+
+  /* Ultra-specific Axiom targeting */
+  [data-theme="dark"] table[class*="_table_"] thead,
+  [data-theme="dark"] table[class*="_table_"] thead tr,
+  [data-theme="dark"] table[class*="_table_"] thead th,
+  [data-theme="dark"] thead[class*="_tableHeader_"],
+  [data-theme="dark"] th[class*="_tableHeaderCell_"] {
+    background-color: var(--bg-primary) !important;
+    background: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+  }
+
+  /* Nuclear option - target ALL table elements in dark mode */
+  [data-theme="dark"] table thead *,
+  [data-theme="dark"] table th,
+  [data-theme="dark"] thead *,
+  [data-theme="dark"] th * {
+    background-color: var(--bg-primary) !important;
+    background: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+  }
+
+  /* Override any Axiom CSS variables */
+  [data-theme="dark"] {
+    --colors-bg-default: var(--bg-primary) !important;
+    --colors-bg-surface: var(--bg-primary) !important;
+    --colors-bg-subtle: var(--bg-primary) !important;
+    --colors-bg-muted: var(--bg-primary) !important;
+  }
+
+  /* Recharts tooltip styling */
+  .recharts-tooltip-wrapper,
+  .recharts-default-tooltip {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 6px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .recharts-tooltip-wrapper *,
+  .recharts-default-tooltip * {
+    color: var(--text-primary) !important;
+  }
+
+  /* Chart grid lines */
+  .recharts-cartesian-grid line {
+    stroke: var(--border-color) !important;
+  }
+
+  /* Metric cards and dashboard content */
+  [class*="metric"],
+  [class*="Metric"],
+  [class*="dashboard"],
+  [class*="Dashboard"] {
+    color: var(--text-primary) !important;
+  }
+
+  /* Override Axiom's color utilities */
+  [class*="fg-"] {
+    color: var(--text-primary) !important;
+  }
+
+  /* Specific overrides for common Axiom color classes */
+  [class*="fg-avatar-neutral"],
+  [class*="fg-accent"],
+  [class*="fg-default"],
+  [class*="fg-secondary"] {
+    color: var(--text-primary) !important;
+  }
+}
+
+/* FINAL OVERRIDE - Load after everything else */
+html[data-theme="dark"] body table thead,
+html[data-theme="dark"] body table thead tr,
+html[data-theme="dark"] body table thead th,
+html[data-theme="dark"] body table thead td,
+html[data-theme="dark"] body thead,
+html[data-theme="dark"] body th {
+  background-color: #1c1c1c !important;
+  background: #1c1c1c !important;
+  color: #ffffff !important;
+}
+
+/* Override any possible Axiom inline styles */
+html[data-theme="dark"] body [style*="background"] {
+  background-color: #1c1c1c !important;
+  background: #1c1c1c !important;
+}
+
+html[data-theme="dark"] body table [style*="background"] {
+  background-color: #1c1c1c !important;
+  background: #1c1c1c !important;
+}
+
+/* TARGET HEADER CELLS SPECIFICALLY */
+html[data-theme="dark"] th,
+html[data-theme="dark"] [role="columnheader"],
+html[data-theme="dark"] table th,
+html[data-theme="dark"] thead th,
+html[data-theme="dark"] table thead th {
+  background-color: #1c1c1c !important;
+  background: #1c1c1c !important;
+  color: #ffffff !important;
+}
+
+/* Target Axiom TableHeaderCell component */
+html[data-theme="dark"] [data-scope="table"] th,
+html[data-theme="dark"] [data-part="header-cell"],
+html[data-theme="dark"] table [data-part="header-cell"] {
+  background-color: #1c1c1c !important;
+  background: #1c1c1c !important;
+  color: #000000 !important;
 }

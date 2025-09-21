@@ -11,9 +11,11 @@ import {
   PanelLeft,
 } from "lucide-react";
 import { useNotificationStore } from "../../stores/notificationStore";
+import { useTheme } from "../../contexts/ThemeContext";
 
 export const Header: React.FC = () => {
   const { toggleNotificationSidebar } = useNotificationStore();
+  const { theme, toggleTheme } = useTheme();
   return (
     <Flex w="full" flexDirection="row" px="24" py="24" borderB="1">
       <Flex
@@ -38,7 +40,7 @@ export const Header: React.FC = () => {
         </Flex>
 
         {/* Right Actions */}
-        <Flex flexDirection="row" alignItems="center" gap="12">
+        <Flex flexDirection="row" alignItems="center" gap="24">
           <Input
             addonBefore={<SearchIcon size={16} />}
             placeholder="Search"
@@ -53,24 +55,22 @@ export const Header: React.FC = () => {
           />
 
           {/* Theme Toggle */}
-          <Button appearance="subtle">
-            <Sun size={20} /> {/* TODO: Add theme toggle */}
-          </Button>
+          <div onClick={toggleTheme}>
+            {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+          </div>
 
           {/* Notifications */}
-          <Button appearance="subtle" onClick={toggleNotificationSidebar}>
+          <div onClick={toggleNotificationSidebar}>
             <Bell size={20} />
-          </Button>
+          </div>
 
           {/* Settings */}
-          <Button appearance="subtle">
-            <History size={20} />
-          </Button>
+
+          <History size={20} />
 
           {/* Settings */}
-          <Button appearance="subtle">
-            <PanelRight size={20} />
-          </Button>
+
+          <PanelRight size={20} />
         </Flex>
       </Flex>
     </Flex>
