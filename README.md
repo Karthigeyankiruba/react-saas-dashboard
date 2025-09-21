@@ -46,7 +46,7 @@ A modern, responsive dashboard built with React 19, TypeScript, and Axiom UI com
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/react-saas-dashboard.git
+git clone https://github.com/Karthigeyankiruba/react-saas-dashboard
 cd react-saas-dashboard
 
 # Install dependencies
