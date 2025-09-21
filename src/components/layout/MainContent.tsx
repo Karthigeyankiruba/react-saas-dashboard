@@ -7,7 +7,7 @@ interface MainContentProps {
 
 export const MainContent: React.FC<MainContentProps> = ({ children }) => {
   return (
-    <Box px="32" py="24">
+    <Box px="32" py="24" overflow="auto">
       {children}
     </Box>
   );

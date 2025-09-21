@@ -12,6 +12,7 @@ import {
   NavGroup,
   NavGroupTrigger,
   NavGroupContent,
+  SidebarToggle,
 } from "@optiaxiom/react";
 import {
   FolderOpen,
@@ -24,6 +25,7 @@ import {
   IdCard,
   PanelLeft,
   MessagesSquare,
+  PanelRight,
 } from "lucide-react";
 import * as styles from "../../styles/layout/Sidebar.css";
 
@@ -31,8 +33,8 @@ export const AppSidebar: React.FC = () => {
   const [selected, setSelected] = useState("default");
 
   return (
-    <Sidebar defaultExpanded>
-      <Nav px="20">
+    <Sidebar defaultExpanded className={styles.sidebar.container} data-sidebar>
+      <Nav px="20" className={styles.sidebar.nav}>
         {/* Header */}
         <Flex flexDirection="row" gap="12" alignItems="center">
           <Avatar
@@ -44,7 +46,6 @@ export const AppSidebar: React.FC = () => {
 
         <NavBody gap="16">
           {/* Favorites & Recently */}
-
           <Flex flexDirection="row" gap="16">
             <Text color="fg.secondary" fontSize="lg">
               Favorites
@@ -56,16 +57,26 @@ export const AppSidebar: React.FC = () => {
 
           <NavList>
             <NavItem
-              icon={<Circle fill="lightgrey" stroke="transparent" />}
+              icon={<Circle fill="#666666" stroke="transparent" />}
               active={selected === "overview"}
               onClick={() => setSelected("overview")}
+              className={
+                selected === "overview"
+                  ? styles.sidebar.navItemActive
+                  : styles.sidebar.navItem
+              }
             >
               Overview
             </NavItem>
             <NavItem
-              icon={<Circle fill="lightgrey" stroke="transparent" />}
+              icon={<Circle fill="#666666" stroke="transparent" />}
               active={selected === "projects"}
               onClick={() => setSelected("projects")}
+              className={
+                selected === "projects"
+                  ? styles.sidebar.navItemActive
+                  : styles.sidebar.navItem
+              }
             >
               Projects
             </NavItem>
@@ -73,12 +84,19 @@ export const AppSidebar: React.FC = () => {
 
           {/* Dashboards */}
           <div>
-            <Text size="sm">Dashboards</Text>
+            <Text size="sm" color="fg.secondary">
+              Dashboards
+            </Text>
             <NavList gap="4">
               <NavItem
                 icon={<ChartPie />}
                 active={selected === "default"}
                 onClick={() => setSelected("default")}
+                className={
+                  selected === "default"
+                    ? styles.sidebar.navItemActive
+                    : styles.sidebar.navItem
+                }
               >
                 Default
               </NavItem>
@@ -86,6 +104,11 @@ export const AppSidebar: React.FC = () => {
                 icon={<ShoppingBag />}
                 active={selected === "ecommerce-dashboard"}
                 onClick={() => setSelected("ecommerce-dashboard")}
+                className={
+                  selected === "ecommerce-dashboard"
+                    ? styles.sidebar.navItemActive
+                    : styles.sidebar.navItem
+                }
               >
                 eCommerce
               </NavItem>
@@ -93,6 +116,11 @@ export const AppSidebar: React.FC = () => {
                 icon={<FolderOpen />}
                 active={selected === "projects-dashboard"}
                 onClick={() => setSelected("projects-dashboard")}
+                className={
+                  selected === "projects-dashboard"
+                    ? styles.sidebar.navItemActive
+                    : styles.sidebar.navItem
+                }
               >
                 Projects
               </NavItem>
@@ -100,6 +128,11 @@ export const AppSidebar: React.FC = () => {
                 icon={<BookOpen />}
                 active={selected === "online-courses"}
                 onClick={() => setSelected("online-courses")}
+                className={
+                  selected === "online-courses"
+                    ? styles.sidebar.navItemActive
+                    : styles.sidebar.navItem
+                }
               >
                 Online Courses
               </NavItem>
@@ -108,7 +141,9 @@ export const AppSidebar: React.FC = () => {
 
           {/* Pages */}
           <NavList gap="4">
-            <Text size="sm">Pages</Text>
+            <Text size="sm" color="fg.secondary">
+              Pages
+            </Text>
             <NavGroup collapsible>
               <NavGroupTrigger
                 chevronPosition="start"
@@ -238,6 +273,8 @@ export const AppSidebar: React.FC = () => {
               </NavGroupContent>
             </NavGroup>
           </NavList>
+
+          <SidebarToggle icon={<PanelRight />} />
         </NavBody>
       </Nav>
     </Sidebar>

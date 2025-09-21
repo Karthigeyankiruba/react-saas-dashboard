@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import "leaflet/dist/leaflet.css";
 
 :root {
   font-family: "Inter", sans-serif;
@@ -12,9 +13,6 @@
   font-variation-settings: normal;
   font-feature-settings: "calt", "liga";
 
-  color: #000000;
-  background-color: #ffffff;
-
   text-transform: none;
   text-decoration: none;
   text-align: start;
@@ -24,10 +22,24 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Default styling */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-card: #f8f9fb;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --text-disabled: #999999;
+  --border-color: #e5e7eb;
+
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
 }
 
 * {
   box-sizing: border-box;
+  transition: none !important;
+  animation: none !important;
 }
 
 body {
@@ -38,18 +50,18 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #000000;
-  background-color: #ffffff;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
 }
 
-/* a {
+a {
   color: #000000;
   text-decoration: none;
 }
 
 a:hover {
   color: #000000;
-} */
+}
 
 h1,
 h2,
@@ -68,7 +80,6 @@ button {
   font-size: 14px;
   font-weight: 400;
   color: #000000;
-  /* background-color: #000000; */
   border: none;
   cursor: pointer;
 }
@@ -80,5 +91,91 @@ select {
   font-size: 14px;
   font-weight: 400;
   color: #000000;
-  /* background-color: #000000; */
+}
+
+/* Leaflet map styles */
+.leaflet-container {
+  background: #f8f9fa !important;
+  height: 200px !important;
+  width: 100% !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.leaflet-map-pane {
+  background: #f8f9fa !important;
+}
+
+.leaflet-tile-pane {
+  background: #f8f9fa !important;
+}
+
+.leaflet-tile {
+  filter: grayscale(80%) brightness(1.1) contrast(0.8) !important;
+}
+
+.leaflet-tile-pane img {
+  filter: grayscale(80%) brightness(1.1) contrast(0.8) !important;
+}
+
+/* Custom dot markers */
+.custom-dot-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Ensure map tiles load properly */
+.leaflet-tile-container {
+  background: #f8f9fa !important;
+}
+
+/* Map attribution */
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.8) !important;
+  color: #666 !important;
+  font-size: 11px !important;
+}
+
+/* Ensure map loads properly */
+.leaflet-container .leaflet-tile-pane {
+  background: #f8f9fa !important;
+}
+
+.leaflet-container .leaflet-tile {
+  background: #f8f9fa !important;
+}
+
+/* Map loading state */
+.leaflet-container.leaflet-touch {
+  background: #f8f9fa !important;
+}
+
+/* Sidebar styling */
+[data-sidebar] {
+  background-color: var(--bg-primary) !important;
+}
+
+[data-sidebar] nav {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Sidebar text colors */
+[data-sidebar] [role="menuitem"],
+[data-sidebar] button,
+[data-sidebar] span,
+[data-sidebar] div {
+  color: var(--text-primary) !important;
+}
+
+/* Breadcrumb text colors */
+[data-breadcrumb] *,
+[role="navigation"] *,
+nav[aria-label="breadcrumb"] * {
+  color: var(--text-primary) !important;
+}
+
+/* Card backgrounds */
+[class*="card"],
+[class*="Card"] {
+  background-color: var(--bg-card) !important;
 }

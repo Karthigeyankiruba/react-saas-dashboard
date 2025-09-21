@@ -1,15 +1,11 @@
 import React from "react";
-import { AxiomProvider, Heading } from "@optiaxiom/react";
-import { DashboardLayout } from "./components/layout/DashboardLayout";
+import { AxiomProvider } from "@optiaxiom/react";
+import AppRoutes from "./AppRoutes";
 
 const App: React.FC = () => {
   return (
     <AxiomProvider>
-      <DashboardLayout>
-        <Heading level="4" color="fg.accent.strong">
-          eCommerce
-        </Heading>
-      </DashboardLayout>
+      <AppRoutes />
     </AxiomProvider>
   );
 };

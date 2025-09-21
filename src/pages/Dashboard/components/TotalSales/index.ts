@@ -1,0 +1,1 @@
+export { TotalSales } from './TotalSales';
