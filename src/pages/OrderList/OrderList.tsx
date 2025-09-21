@@ -41,22 +41,22 @@ const OrderList = () => {
     },
     onGlobalFilterChange: setGlobalFilter,
     onPaginationChange: setPagination,
-    globalFilterFn: (row, value) => {
-      const search = value.toLowerCase();
+    globalFilterFn: (row, columnId, value) => {
+      const search = String(value).toLowerCase();
       const item = row.original;
 
-      // Search through all relevant fields
+      // Search through all relevant fields with safe string conversion
       const searchableFields = [
-        item.id,
+        item.id || "",
         item.user?.name || "",
-        item.project,
-        item.address,
-        item.date,
-        item.status,
+        item.project || "",
+        item.address || "",
+        item.date || "",
+        item.status || "",
       ];
 
       return searchableFields.some((field) =>
-        field.toLowerCase().includes(search)
+        String(field).toLowerCase().includes(search)
       );
     },
     pageCount: Math.ceil(data.length / pagination.pageSize),
