@@ -1,0 +1,614 @@
+{
+  "metrics": [
+    {
+      "title": "Customers",
+      "value": "3,781",
+      "description": "+11.01%",
+      "trend": "up",
+      "color": "#E2F4FE"
+    },
+    {
+      "title": "Orders",
+      "value": "1,219",
+      "description": "-0.03%",
+      "trend": "down",
+      "color": "var(--bg-card)",
+      "clickable": true,
+      "route": "/order-list"
+    },
+    {
+      "title": "Revenue",
+      "value": "$695",
+      "description": "+15.03%",
+      "trend": "up",
+      "color": "var(--bg-card)"
+    },
+    {
+      "title": "Growth",
+      "value": "30.1%",
+      "description": "+6.08%",
+      "trend": "up",
+      "color": "#E2F4FE"
+    }
+  ],
+  "topSellingProducts": [
+    {
+      "name": "ASOS Ridley High Waist",
+      "price": "$79.49",
+      "quantity": 82,
+      "amount": "$6518.18"
+    },
+    {
+      "name": "Marco Lightweight Shirt",
+      "price": "$128.5",
+      "quantity": 37,
+      "amount": "$4754.5"
+    },
+    {
+      "name": "Half Sleeve Shirt",
+      "price": "$39.99",
+      "quantity": 64,
+      "amount": "$2559.36"
+    },
+    {
+      "name": "Lightweight Jacket",
+      "price": "$20.0",
+      "quantity": 184,
+      "amount": "$3680.0"
+    },
+    {
+      "name": "Marco Shoes",
+      "price": "$79.49",
+      "quantity": 64,
+      "amount": "$1965.81"
+    }
+  ],
+  "revenueChart": [
+    { "month": "Jan", "currentWeek": 12, "previousWeek": 8 },
+    { "month": "Feb", "currentWeek": 8, "previousWeek": 17 },
+    { "month": "Mar", "currentWeek": 12, "previousWeek": 10 },
+    { "month": "Apr", "currentWeek": 16, "previousWeek": 12 },
+    { "month": "May", "currentWeek": 19, "previousWeek": 18 },
+    { "month": "Jun", "currentWeek": 20, "previousWeek": 23 }
+  ],
+  "projectionsChart": [
+    { "month": "Jan", "actuals": 16, "projections": 4 },
+    { "month": "Feb", "actuals": 20, "projections": 5 },
+    { "month": "Mar", "actuals": 17, "projections": 4 },
+    { "month": "Apr", "actuals": 21, "projections": 6 },
+    { "month": "May", "actuals": 14, "projections": 4 },
+    { "month": "Jun", "actuals": 20, "projections": 5 }
+  ],
+  "totalSales": [
+    { "name": "E-mail", "value": 60, "color": "#ADD8E6" },
+    { "name": "Sponsored", "value": 100, "color": "#DDA0DD" },
+    { "name": "Direct", "value": 450, "color": "#000000" },
+    { "name": "Affiliate", "value": 390, "color": "#90EE90" }
+  ],
+  "revenueLocations": [
+    { "name": "New York", "revenue": 72, "lat": 40.7128, "lng": -74.006 },
+    { "name": "London", "revenue": 39, "lat": 51.5074, "lng": -0.1278 },
+    { "name": "Sydney", "revenue": 25, "lat": -33.8688, "lng": 151.2093 },
+    { "name": "Singapore", "revenue": 61, "lat": 1.3521, "lng": 103.8198 }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "icon": "Bug",
+      "title": "You have a bug that needs...",
+      "description": "A critical bug was reported in the payment gateway.",
+      "time": "Just now",
+      "unread": true,
+      "color": "#a8c5da"
+    },
+    {
+      "id": 2,
+      "icon": "User",
+      "title": "New user registered",
+      "description": "John Doe just signed up for your service.",
+      "time": "59 minutes ago",
+      "unread": false,
+      "color": "#ececf6"
+    },
+    {
+      "id": 3,
+      "icon": "UserCheck",
+      "title": "New user registered",
+      "description": "Jane Smith created an account and completed verification.",
+      "time": "12 minutes ago",
+      "unread": true,
+      "color": "#a8c5da"
+    },
+    {
+      "id": 4,
+      "icon": "DollarSign",
+      "title": "Payment received",
+      "description": "Payment of $299.99 received from customer #1234.",
+      "time": "2 hours ago",
+      "unread": false,
+      "color": "#ececf6"
+    },
+    {
+      "id": 5,
+      "icon": "ShoppingCart",
+      "title": "New order placed",
+      "description": "Order #5678 has been placed and is awaiting processing.",
+      "time": "3 hours ago",
+      "unread": true,
+      "color": "#a8c5da"
+    },
+    {
+      "id": 6,
+      "icon": "AlertTriangle",
+      "title": "Server maintenance",
+      "description": "Scheduled maintenance will begin at 2:00 AM UTC.",
+      "time": "5 hours ago",
+      "unread": false,
+      "color": "#ececf6"
+    },
+    {
+      "id": 7,
+      "icon": "Mail",
+      "title": "New message received",
+      "description": "You have received a new message from support team.",
+      "time": "1 day ago",
+      "unread": false,
+      "color": "#ececf6"
+    },
+    {
+      "id": 8,
+      "icon": "Settings",
+      "title": "Settings updated",
+      "description": "Your account settings have been successfully updated.",
+      "time": "2 days ago",
+      "unread": false,
+      "color": "#ececf6"
+    }
+  ],
+  "orders": [
+    {
+      "id": "CM9801",
+      "user": {
+        "name": "Natali Craig",
+        "avatar": "https://images.unsplash.com/photo-1529626465619-b3786711d7f3?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Landing Page",
+      "address": "Meadow Lane Oakland",
+      "date": "Just now",
+      "status": "In Progress",
+      "statusColor": "#8B5CF6"
+    },
+    {
+      "id": "CM9802",
+      "user": {
+        "name": "Kate Morrison",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29329?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "CRM Admin pages",
+      "address": "Larry San Francisco",
+      "date": "A minute ago",
+      "status": "Complete",
+      "statusColor": "#10B981"
+    },
+    {
+      "id": "CM9803",
+      "user": {
+        "name": "Drew Cano",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Client Project",
+      "address": "Bagwell Avenue Ocala",
+      "date": "1 hour ago",
+      "status": "Pending",
+      "statusColor": "#3B82F6"
+    },
+    {
+      "id": "CM9804",
+      "user": {
+        "name": "Orlando Diggs",
+        "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cfce54f6?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Admin Dashboard",
+      "address": "Washburn Baton Rouge",
+      "date": "Yesterday",
+      "status": "Approved",
+      "statusColor": "#F59E0B"
+    },
+    {
+      "id": "CM9805",
+      "user": {
+        "name": "Andi Lane",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "App UI Kit",
+      "address": "Nest Lane Olivette",
+      "date": "Feb 2, 2023",
+      "status": "Rejected",
+      "statusColor": "#EF4444"
+    },
+    {
+      "id": "CM9806",
+      "user": {
+        "name": "Kate Morrison",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29329?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Project Management App",
+      "address": "Aspen Court South Gate",
+      "date": "Feb 2, 2023",
+      "status": "In Progress",
+      "statusColor": "#8B5CF6"
+    },
+    {
+      "id": "CM9807",
+      "user": {
+        "name": "Koray Okumus",
+        "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "CRM Admin pages",
+      "address": "Elm Drive Newark",
+      "date": "Feb 2, 2023",
+      "status": "Complete",
+      "statusColor": "#10B981"
+    },
+    {
+      "id": "CM9808",
+      "user": {
+        "name": "Melody Macy",
+        "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "E-commerce Website",
+      "address": "Oak Street Chicago",
+      "date": "Feb 1, 2023",
+      "status": "Pending",
+      "statusColor": "#3B82F6"
+    },
+    {
+      "id": "CM9809",
+      "user": {
+        "name": "Ryan Miller",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Mobile Banking App",
+      "address": "Pine Avenue Boston",
+      "date": "Jan 30, 2023",
+      "status": "Approved",
+      "statusColor": "#F59E0B"
+    },
+    {
+      "id": "CM9810",
+      "user": {
+        "name": "Sarah Johnson",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29329?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Social Media Dashboard",
+      "address": "Maple Road Seattle",
+      "date": "Jan 28, 2023",
+      "status": "Complete",
+      "statusColor": "#10B981"
+    },
+    {
+      "id": "CM9811",
+      "user": {
+        "name": "James Wilson",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Analytics Platform",
+      "address": "Cedar Lane Portland",
+      "date": "Jan 27, 2023",
+      "status": "In Progress",
+      "statusColor": "#8B5CF6"
+    },
+    {
+      "id": "CM9812",
+      "user": {
+        "name": "Emma Davis",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "HR Management System",
+      "address": "Birch Street Denver",
+      "date": "Jan 26, 2023",
+      "status": "Rejected",
+      "statusColor": "#EF4444"
+    },
+    {
+      "id": "CM9813",
+      "user": {
+        "name": "Michael Brown",
+        "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Inventory System",
+      "address": "Walnut Drive Austin",
+      "date": "Jan 25, 2023",
+      "status": "Complete",
+      "statusColor": "#10B981"
+    },
+    {
+      "id": "CM9814",
+      "user": {
+        "name": "Sophie Taylor",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Payment Gateway",
+      "address": "Spruce Court Miami",
+      "date": "Jan 24, 2023",
+      "status": "Pending",
+      "statusColor": "#3B82F6"
+    },
+    {
+      "id": "CM9815",
+      "user": {
+        "name": "Daniel Lee",
+        "avatar": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Booking System",
+      "address": "Elm Street Houston",
+      "date": "Jan 23, 2023",
+      "status": "Approved",
+      "statusColor": "#F59E0B"
+    },
+    {
+      "id": "CM9816",
+      "user": {
+        "name": "Olivia Martin",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29329?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "CMS Development",
+      "address": "Oak Avenue Dallas",
+      "date": "Jan 22, 2023",
+      "status": "In Progress",
+      "statusColor": "#8B5CF6"
+    },
+    {
+      "id": "CM9817",
+      "user": {
+        "name": "William Clark",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Mobile Game",
+      "address": "Pine Street Phoenix",
+      "date": "Jan 21, 2023",
+      "status": "Complete",
+      "statusColor": "#10B981"
+    },
+    {
+      "id": "CM9818",
+      "user": {
+        "name": "Isabella White",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Learning Platform",
+      "address": "Cedar Road Philadelphia",
+      "date": "Jan 20, 2023",
+      "status": "Rejected",
+      "statusColor": "#EF4444"
+    },
+    {
+      "id": "CM9819",
+      "user": {
+        "name": "Lucas Rodriguez",
+        "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Fitness App",
+      "address": "Maple Avenue San Diego",
+      "date": "Jan 19, 2023",
+      "status": "Pending",
+      "statusColor": "#3B82F6"
+    },
+    {
+      "id": "CM9820",
+      "user": {
+        "name": "Ava Thompson",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Real Estate Portal",
+      "address": "Birch Drive San Francisco",
+      "date": "Jan 18, 2023",
+      "status": "Approved",
+      "statusColor": "#F59E0B"
+    },
+    {
+      "id": "CM9821",
+      "user": {
+        "name": "Ethan Anderson",
+        "avatar": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Food Delivery App",
+      "address": "Walnut Street Las Vegas",
+      "date": "Jan 17, 2023",
+      "status": "In Progress",
+      "statusColor": "#8B5CF6"
+    },
+    {
+      "id": "CM9822",
+      "user": {
+        "name": "Mia Garcia",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29329?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Travel Booking System",
+      "address": "Spruce Avenue Detroit",
+      "date": "Jan 16, 2023",
+      "status": "Complete",
+      "statusColor": "#10B981"
+    },
+    {
+      "id": "CM9823",
+      "user": {
+        "name": "Alexander Moore",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Event Management",
+      "address": "Oak Road Atlanta",
+      "date": "Jan 15, 2023",
+      "status": "Pending",
+      "statusColor": "#3B82F6"
+    },
+    {
+      "id": "CM9824",
+      "user": {
+        "name": "Charlotte Lewis",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Task Management",
+      "address": "Pine Court Miami",
+      "date": "Jan 14, 2023",
+      "status": "Rejected",
+      "statusColor": "#EF4444"
+    },
+    {
+      "id": "CM9825",
+      "user": {
+        "name": "Henry Lee",
+        "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Healthcare Portal",
+      "address": "Cedar Street Nashville",
+      "date": "Jan 13, 2023",
+      "status": "Complete",
+      "statusColor": "#10B981"
+    },
+    {
+      "id": "CM9826",
+      "user": {
+        "name": "Scarlett Walker",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Education Platform",
+      "address": "Birch Avenue Portland",
+      "date": "Jan 12, 2023",
+      "status": "In Progress",
+      "statusColor": "#8B5CF6"
+    },
+    {
+      "id": "CM9827",
+      "user": {
+        "name": "Sebastian Hall",
+        "avatar": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Messaging App",
+      "address": "Maple Street Denver",
+      "date": "Jan 11, 2023",
+      "status": "Approved",
+      "statusColor": "#F59E0B"
+    },
+    {
+      "id": "CM9828",
+      "user": {
+        "name": "Victoria Young",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29329?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Music Streaming",
+      "address": "Walnut Avenue Seattle",
+      "date": "Jan 10, 2023",
+      "status": "Pending",
+      "statusColor": "#3B82F6"
+    },
+    {
+      "id": "CM9829",
+      "user": {
+        "name": "Christopher King",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Video Platform",
+      "address": "Spruce Street Boston",
+      "date": "Jan 9, 2023",
+      "status": "Complete",
+      "statusColor": "#10B981"
+    },
+    {
+      "id": "CM9830",
+      "user": {
+        "name": "Zoe Wright",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "News Portal",
+      "address": "Oak Lane Chicago",
+      "date": "Jan 8, 2023",
+      "status": "In Progress",
+      "statusColor": "#8B5CF6"
+    },
+    {
+      "id": "CM9831",
+      "user": {
+        "name": "David Lopez",
+        "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Weather App",
+      "address": "Pine Drive Houston",
+      "date": "Jan 7, 2023",
+      "status": "Rejected",
+      "statusColor": "#EF4444"
+    },
+    {
+      "id": "CM9832",
+      "user": {
+        "name": "Grace Scott",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Recipe App",
+      "address": "Cedar Court Phoenix",
+      "date": "Jan 6, 2023",
+      "status": "Approved",
+      "statusColor": "#F59E0B"
+    },
+    {
+      "id": "CM9833",
+      "user": {
+        "name": "Joseph Green",
+        "avatar": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Fitness Tracker",
+      "address": "Birch Street Dallas",
+      "date": "Jan 5, 2023",
+      "status": "Complete",
+      "statusColor": "#10B981"
+    },
+    {
+      "id": "CM9834",
+      "user": {
+        "name": "Lily Baker",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29329?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Portfolio Website",
+      "address": "Maple Lane San Francisco",
+      "date": "Jan 4, 2023",
+      "status": "Pending",
+      "statusColor": "#3B82F6"
+    },
+    {
+      "id": "CM9835",
+      "user": {
+        "name": "Thomas Adams",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Blog Platform",
+      "address": "Walnut Road Las Vegas",
+      "date": "Jan 3, 2023",
+      "status": "In Progress",
+      "statusColor": "#8B5CF6"
+    },
+    {
+      "id": "CM9836",
+      "user": {
+        "name": "Chloe Nelson",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Chat Application",
+      "address": "Spruce Drive Atlanta",
+      "date": "Jan 2, 2023",
+      "status": "Complete",
+      "statusColor": "#10B981"
+    },
+    {
+      "id": "CM9837",
+      "user": {
+        "name": "Benjamin Carter",
+        "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=32&h=32&fit=crop&crop=face"
+      },
+      "project": "Note Taking App",
+      "address": "Oak Court Nashville",
+      "date": "Jan 1, 2023",
+      "status": "Approved",
+      "statusColor": "#F59E0B"
+    }
+  ]
+}

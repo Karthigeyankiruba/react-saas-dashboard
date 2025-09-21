@@ -55,12 +55,12 @@ export const Header: React.FC = () => {
           />
 
           {/* Theme Toggle */}
-          <div onClick={toggleTheme}>
+          <div onClick={toggleTheme} className="cursor-pointer">
             {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
           </div>
 
           {/* Notifications */}
-          <div onClick={toggleNotificationSidebar}>
+          <div onClick={toggleNotificationSidebar} className="cursor-pointer">
             <Bell size={20} />
           </div>
 

@@ -3,15 +3,7 @@ import { Box, Card, CardHeader, Flex, Text } from "@optiaxiom/react";
 import { totalSales } from "./TotalSales.css";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 import { Circle } from "lucide-react";
-
-type Slice = { name: string; value: number; color: string };
-
-const data: Slice[] = [
-  { name: "E-mail", value: 60, color: "#ADD8E6" }, // Light Blue - smallest (~6-7%)
-  { name: "Sponsored", value: 100, color: "#DDA0DD" }, // Light Purple (~10-12%)
-  { name: "Direct", value: 450, color: "#000000" }, // Black - largest (~45-48%)
-  { name: "Affiliate", value: 390, color: "#90EE90" }, // Light Green - second largest (~35-39%)
-];
+import { getTotalSalesData } from "../../../../data/dataService";
 
 const formatCurrency = (amount: number) => {
   return new Intl.NumberFormat("en-US", {
@@ -38,6 +30,8 @@ const CustomTooltip = ({ active, payload }: any) => {
 };
 
 export const TotalSales: React.FC = () => {
+  const data = getTotalSalesData();
+
   return (
     <Card className={totalSales.container}>
       <CardHeader>
@@ -56,7 +50,7 @@ export const TotalSales: React.FC = () => {
         <ResponsiveContainer width={180} height={180}>
           <PieChart>
             <Pie
-              data={data}
+              data={data as any[]}
               dataKey="value"
               nameKey="name"
               cx="50%"

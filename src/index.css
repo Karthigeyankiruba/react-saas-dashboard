@@ -101,6 +101,10 @@ select {
   overflow: hidden !important;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .leaflet-map-pane {
   background: #f8f9fa !important;
 }
@@ -353,6 +357,14 @@ nav[aria-label="breadcrumb"] * {
     color: var(--text-primary) !important;
   }
 
+  /* Preserve light blue background for specific cards */
+  [data-theme="dark"] [style*="background-color: rgb(226, 244, 254)"],
+  [data-theme="dark"] [style*="background-color:#E2F4FE"],
+  [data-theme="dark"] [style*="background-color: #E2F4FE"] {
+    background-color: #e2f4fe !important;
+    color: #000000 !important; /* Keep dark text on light background */
+  }
+
   /* Override Axiom's color utilities */
   [class*="fg-"] {
     color: var(--text-primary) !important;
@@ -407,5 +419,14 @@ html[data-theme="dark"] [data-part="header-cell"],
 html[data-theme="dark"] table [data-part="header-cell"] {
   background-color: #1c1c1c !important;
   background: #1c1c1c !important;
-  color: #000000 !important;
+  color: #ffffff !important;
+}
+/* Target every possible table header selector */
+html[data-theme="dark"] * thead,
+html[data-theme="dark"] * thead *,
+html[data-theme="dark"] * th,
+html[data-theme="dark"] * [role="columnheader"] {
+  background-color: transparent !important;
+  background: transparent !important;
+  color: #ffffff !important;
 }

@@ -31,10 +31,12 @@ import {
   FileText,
 } from "lucide-react";
 import * as styles from "../../styles/layout/Sidebar.css";
+import { useNavigate } from "react-router-dom";
 
 export const AppSidebar: React.FC = () => {
   const [selected, setSelected] = useState("default");
   const [isExpanded, setIsExpanded] = useState(true);
+  const navigate = useNavigate();
 
   return (
     <Sidebar
@@ -107,7 +109,10 @@ export const AppSidebar: React.FC = () => {
             <NavItem
               icon={<ChartPie />}
               active={selected === "default"}
-              onClick={() => setSelected("default")}
+              onClick={() => {
+                setSelected("default");
+                navigate("/");
+              }}
               className={
                 selected === "default"
                   ? styles.sidebar.navItemActive

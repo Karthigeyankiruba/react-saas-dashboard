@@ -2,43 +2,36 @@ import { Grid } from "@optiaxiom/react";
 import { MetricCard } from "../../../../components/MetricCard";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { getMetrics } from "../../../../data/dataService";
 
 const MetricsGrid = () => {
   const navigate = useNavigate();
+  const metricsData = getMetrics();
+
   return (
     <Grid gridTemplateColumns={{ base: "1", md: "2" }} gap="24">
-      <MetricCard
-        title="Customers"
-        value="3,781"
-        description="+11.01%"
-        icon={<TrendingUp size={14} />}
-        color="#E2F4FE"
-      />
-
-      <MetricCard
-        title="Orders"
-        value="1,219"
-        description="-0.03%"
-        icon={<TrendingDown size={14} />}
-        color="var(--bg-card)"
-        onClick={() => navigate("/order-list")}
-      />
-
-      <MetricCard
-        title="Revenue"
-        value="$695"
-        description="+15.03%"
-        icon={<TrendingUp size={14} />}
-        color="var(--bg-card)"
-      />
-
-      <MetricCard
-        title="Growth"
-        value="30.1%"
-        description="+6.08%"
-        icon={<TrendingUp size={14} />}
-        color="#E2F4FE"
-      />
+      {metricsData.map((metric) => (
+        <MetricCard
+          key={metric.title}
+          title={metric.title}
+          value={metric.value}
+          description={metric.description}
+          icon={
+            metric.trend === "up" ? (
+              <TrendingUp size={14} />
+            ) : (
+              <TrendingDown size={14} />
+            )
+          }
+          color={metric.color as "#E2F4FE" | "var(--bg-card)"}
+          onClick={
+            metric.clickable && metric.route
+              ? () => navigate(metric.route as string)
+              : undefined
+          }
+          cursor={metric.clickable && metric.route ? "pointer" : "default"}
+        />
+      ))}
     </Grid>
   );
 };

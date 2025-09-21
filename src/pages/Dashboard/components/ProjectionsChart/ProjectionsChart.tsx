@@ -10,15 +10,7 @@ import {
 } from "recharts";
 import { Box, Card, Text } from "@optiaxiom/react";
 import { projectionsChart } from "./ProjectionsChart.css";
-
-const data = [
-  { month: "Jan", actuals: 16, projections: 4 },
-  { month: "Feb", actuals: 20, projections: 5 },
-  { month: "Mar", actuals: 17, projections: 4 },
-  { month: "Apr", actuals: 21, projections: 6 },
-  { month: "May", actuals: 14, projections: 4 },
-  { month: "Jun", actuals: 20, projections: 5 },
-];
+import { getProjectionsChartData } from "../../../../data/dataService";
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -45,6 +37,8 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 export const ProjectionsChart: React.FC = () => {
+  const data = getProjectionsChartData();
+
   return (
     <Card className={projectionsChart.container}>
       <Text fontWeight="600" fontSize="xl" color="fg.avatar.neutral">

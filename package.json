@@ -1,8 +1,9 @@
 {
   "name": "react-saas-dashboard",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Modern React SaaS Dashboard with TypeScript and Axiom UI",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -10,35 +11,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@hookform/resolvers": "^5.2.2",
-    "@iconify/json": "^2.2.385",
-    "@iconify/react": "^6.0.2",
     "@optiaxiom/globals": "^1.1.0",
     "@optiaxiom/react": "^1.7.1",
-    "@radix-ui/react-id": "^1.1.1",
-    "@radix-ui/react-slot": "^1.2.3",
     "@tanstack/react-table": "^8.21.3",
-    "@types/d3": "^7.4.3",
     "@types/leaflet": "^1.9.20",
-    "@types/react-router-dom": "^5.3.3",
     "@vanilla-extract/css": "^1.17.4",
     "@vanilla-extract/dynamic": "^2.1.5",
-    "@vanilla-extract/recipes": "^0.5.7",
-    "@vanilla-extract/sprinkles": "^1.6.5",
-    "axios": "^1.12.2",
-    "clsx": "^2.1.1",
-    "d3": "^7.9.0",
-    "date-fns": "^4.1.0",
-    "framer-motion": "^12.23.15",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.544.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-hook-form": "^7.62.0",
     "react-leaflet": "^5.0.0",
     "react-router-dom": "^7.9.1",
     "recharts": "^3.2.1",
-    "zod": "^4.1.9",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
@@ -54,5 +39,15 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.43.0",
     "vite": "^7.1.6"
-  }
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "dashboard",
+    "saas",
+    "axiom",
+    "vite"
+  ],
+  "author": "Karthigeyankiruba",
+  "license": "MIT"
 }

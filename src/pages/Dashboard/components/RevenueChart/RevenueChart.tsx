@@ -10,15 +10,7 @@ import {
 } from "recharts";
 import { Box, Text } from "@optiaxiom/react";
 import { revenueChart } from "./RevenueChart.css";
-
-const data = [
-  { month: "Jan", currentWeek: 12, previousWeek: 8 },
-  { month: "Feb", currentWeek: 8, previousWeek: 17 },
-  { month: "Mar", currentWeek: 12, previousWeek: 10 },
-  { month: "Apr", currentWeek: 16, previousWeek: 12 },
-  { month: "May", currentWeek: 19, previousWeek: 18 },
-  { month: "Jun", currentWeek: 20, previousWeek: 23 },
-];
+import { getRevenueChartData } from "../../../../data/dataService";
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -39,6 +31,8 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 export const RevenueChart: React.FC = () => {
+  const data = getRevenueChartData();
+
   return (
     <ResponsiveContainer width="100%" height={380}>
       <LineChart

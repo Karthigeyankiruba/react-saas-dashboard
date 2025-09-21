@@ -1,17 +1,17 @@
 import { create } from 'zustand';
 
 interface NotificationState {
-  isNotificationSidebarOpen: boolean;
+  isOpen: boolean;
   toggleNotificationSidebar: () => void;
   closeNotificationSidebar: () => void;
   openNotificationSidebar: () => void;
 }
 
 export const useNotificationStore = create<NotificationState>((set) => ({
-  isNotificationSidebarOpen: false,
+  isOpen: false,
   toggleNotificationSidebar: () => set((state) => ({ 
-    isNotificationSidebarOpen: !state.isNotificationSidebarOpen 
+    isOpen: !state.isOpen 
   })),
-  closeNotificationSidebar: () => set({ isNotificationSidebarOpen: false }),
-  openNotificationSidebar: () => set({ isNotificationSidebarOpen: true }),
+  closeNotificationSidebar: () => set({ isOpen: false }),
+  openNotificationSidebar: () => set({ isOpen: true }),
 }));

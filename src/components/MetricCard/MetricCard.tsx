@@ -9,6 +9,7 @@ interface MetricCardProps {
   icon: React.ReactNode;
   color: "#E2F4FE" | "var(--bg-card)";
   onClick?: () => void;
+  cursor?: "pointer" | "default";
 }
 
 const MetricCard = ({
@@ -18,12 +19,14 @@ const MetricCard = ({
   icon,
   color,
   onClick,
+  cursor,
 }: MetricCardProps) => {
   return (
     <Card
       className={styles.metricCard}
       onClick={onClick}
       style={{ backgroundColor: color }}
+      cursor={cursor}
     >
       <CardHeader>
         <Text fontWeight="600" fontSize="xl" color="fg.avatar.neutral">

@@ -3,13 +3,7 @@ import { revenueCard } from "../RevenueCard/RevenueCard.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-
-const locationData = [
-  { name: "New York", revenue: 72, lat: 40.7128, lng: -74.006 },
-  { name: "San Francisco", revenue: 39, lat: 37.7749, lng: -122.4194 },
-  { name: "Sydney", revenue: 25, lat: -33.8688, lng: 151.2093 },
-  { name: "Singapore", revenue: 61, lat: 1.3521, lng: 103.8198 },
-];
+import { getRevenueLocations } from "../../../../data/dataService";
 
 const createDotIcon = (color: string = "#000000") => {
   return L.divIcon({
@@ -45,6 +39,8 @@ const ProgressMeter = ({ title, value }: { title: string; value: number }) => {
 };
 
 const RevenueLocation = () => {
+  const locationData = getRevenueLocations();
+
   return (
     <Card className={revenueCard} w="full">
       <CardHeader>

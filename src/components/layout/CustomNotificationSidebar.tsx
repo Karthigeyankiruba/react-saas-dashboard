@@ -1,48 +1,32 @@
 import React from "react";
 import { Box, Flex, Text, Avatar } from "@optiaxiom/react";
-import { Bug, User, Rss } from "lucide-react";
+import {
+  Bug,
+  User,
+  UserCheck,
+  DollarSign,
+  ShoppingCart,
+  AlertTriangle,
+  Mail,
+  Settings,
+} from "lucide-react";
 import { useNotificationStore } from "../../stores/notificationStore";
 import { customNotificationSidebar } from "./CustomNotificationSidebar.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
+import { getNotifications } from "../../data/dataService";
+import type { NotificationData } from "../../types/data";
 
-const notificationsData = [
-  {
-    id: 1,
-    icon: <Bug size={16} />,
-    title: "You have a bug that needs...",
-    description: "A critical bug was reported in the payment gateway.",
-    time: "Just now",
-    unread: true,
-    color: "#a8c5da",
-  },
-  {
-    id: 2,
-    icon: <User size={16} />,
-    title: "New user registered",
-    description: "John Doe just signed up for your service.",
-    time: "59 minutes ago",
-    unread: false,
-    color: "#ececf6",
-  },
-  {
-    id: 3,
-    icon: <Bug size={16} />,
-    title: "You have a bug that needs...",
-    description: "Another critical bug was reported.",
-    time: "12 hours ago",
-    unread: true,
-    color: "#a8c5da",
-  },
-  {
-    id: 4,
-    icon: <Rss size={16} />,
-    title: "Andi Lane subscribed to you",
-    description: "New subscriber notification",
-    time: "Today, 11:59 AM",
-    unread: false,
-    color: "#ececf6",
-  },
-];
+// Icon mapping for dynamic icon rendering
+const iconMap = {
+  Bug: Bug,
+  User: User,
+  UserCheck: UserCheck,
+  DollarSign: DollarSign,
+  ShoppingCart: ShoppingCart,
+  AlertTriangle: AlertTriangle,
+  Mail: Mail,
+  Settings: Settings,
+} as const;
 
 const activitiesData = [
   {
@@ -65,26 +49,10 @@ const activitiesData = [
   {
     id: 3,
     avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29329?w=32&h=32&fit=crop&crop=face",
-    name: "Submitted a bug",
-    action: "Submitted a bug report",
-    time: "12 hours ago",
-  },
-  {
-    id: 4,
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-e695c6edd65d?w=32&h=32&fit=crop&crop=face",
-    name: "Modified A data in Page X",
-    action: "Modified data in Page X",
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face",
+    name: "Andi Lane",
+    action: "subscribed to you",
     time: "Today, 11:59 AM",
-  },
-  {
-    id: 5,
-    avatar:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=32&h=32&fit=crop&crop=face",
-    name: "Deleted a page in Project X",
-    action: "Deleted a page in Project X",
-    time: "Feb 2, 2023",
   },
 ];
 
@@ -92,36 +60,36 @@ const contactsData = [
   {
     id: 1,
     avatar:
-      "https://images.unsplash.com/photo-1529626465619-b3786711d7f3?w=32&h=32&fit=crop&crop=face",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=32&h=32&fit=crop&crop=face",
     name: "Natali Craig",
     status: "online",
   },
   {
     id: 2,
     avatar:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=32&h=32&fit=crop&crop=face",
+      "https://images.unsplash.com/photo-1535713875002-d1d0cfce54f6?w=32&h=32&fit=crop&crop=face",
     name: "Drew Cano",
-    status: "away",
+    status: "online",
   },
   {
     id: 3,
     avatar:
-      "https://images.unsplash.com/photo-1535713875002-d1d0cfce54f6?w=32&h=32&fit=crop&crop=face",
-    name: "Orlando Diggs",
-    status: "offline",
-  },
-  {
-    id: 4,
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29329?w=32&h=32&fit=crop&crop=face",
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face",
     name: "Andi Lane",
     status: "online",
   },
   {
+    id: 4,
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face",
+    name: "Orlando Diggs",
+    status: "offline",
+  },
+  {
     id: 5,
     avatar:
-      "https://images.unsplash.com/photo-1507003211169-e695c6edd65d?w=32&h=32&fit=crop&crop=face",
-    name: "Kate Morrison",
+      "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=32&h=32&fit=crop&crop=face",
+    name: "Andi Lane",
     status: "online",
   },
   {
@@ -133,39 +101,45 @@ const contactsData = [
   },
 ];
 
-const NotificationItem = ({ notification }: { notification: any }) => (
-  <Flex gap="12">
-    <Flex flexDirection="row" gap="16" alignItems="start">
-      <Box
-        className={customNotificationSidebar.notificationIcon}
-        style={{
-          ...assignInlineVars({
-            backgroundColor: notification.color,
-          }),
-        }}
-      >
-        {notification.icon}
-      </Box>
-      <Flex flexDirection="column" flex="1" gap="4">
-        <Text fontWeight="600" color="fg.default">
-          {notification.title}
-        </Text>
-        <Text color="fg.disabled">{notification.time}</Text>
+const NotificationItem = ({
+  notification,
+}: {
+  notification: NotificationData;
+}) => {
+  const IconComponent = iconMap[notification.icon as keyof typeof iconMap];
+
+  return (
+    <Flex gap="12">
+      <Flex flexDirection="row" gap="16" alignItems="start">
+        <Box
+          className={customNotificationSidebar.notificationIcon}
+          style={{
+            ...assignInlineVars({
+              backgroundColor: notification.color,
+            }),
+          }}
+        >
+          {IconComponent && <IconComponent size={16} />}
+        </Box>
+        <Flex flexDirection="column" flex="1" gap="4">
+          <Text fontWeight="600" color="fg.default">
+            {notification.title}
+          </Text>
+          <Text color="fg.disabled">{notification.time}</Text>
+        </Flex>
       </Flex>
     </Flex>
-  </Flex>
-);
+  );
+};
 
 const ActivityItem = ({ activity }: { activity: any }) => (
-  <Flex gap="12" alignItems="start">
-    <Flex flexDirection="row" gap="16" alignItems="start">
-      <Avatar src={activity.avatar} />
-      <Flex flexDirection="column" flex="1" gap="4">
-        <Text fontWeight="600" color="fg.default">
-          {activity.name}
-        </Text>
-        <Text color="fg.disabled">{activity.time}</Text>
-      </Flex>
+  <Flex flexDirection="row" gap="12" alignItems="start">
+    <Avatar src={activity.avatar} />
+    <Flex flexDirection="column" flex="1" gap="4">
+      <Text fontWeight="600" color="fg.default">
+        {activity.name}
+      </Text>
+      <Text color="fg.disabled">{activity.time}</Text>
     </Flex>
   </Flex>
 );
@@ -180,13 +154,13 @@ const ContactItem = ({ contact }: { contact: any }) => (
 );
 
 export const CustomNotificationSidebar: React.FC = () => {
-  const { isNotificationSidebarOpen } = useNotificationStore();
+  const { isOpen } = useNotificationStore();
+  const notificationsData = getNotifications();
+
+  if (!isOpen) return null;
 
   return (
-    <Box
-      className={customNotificationSidebar.sidebar}
-      data-open={isNotificationSidebarOpen}
-    >
+    <Box className={customNotificationSidebar.sidebar} data-open={isOpen}>
       {/* Content */}
       <Flex gap="24" p="24">
         {/* Notifications Section */}

@@ -16,11 +16,16 @@ import {
 } from "@tanstack/react-table";
 import { orderList } from "./OrderList.css";
 import { columns } from "./columns";
-import { data } from "./data";
+import { getOrders } from "../../data/dataService";
 import { useState } from "react";
 
 const OrderList = () => {
   const [globalFilter, setGlobalFilter] = useState<string>("");
+  const [pagination, setPagination] = useState({
+    pageIndex: 0,
+    pageSize: 10,
+  });
+  const data = getOrders();
 
   const table = useReactTable({
     columns,
@@ -29,10 +34,13 @@ const OrderList = () => {
     getPaginationRowModel: getPaginationRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     enableRowSelection: true,
+    manualPagination: false,
     state: {
       globalFilter,
+      pagination,
     },
     onGlobalFilterChange: setGlobalFilter,
+    onPaginationChange: setPagination,
     globalFilterFn: (row, value) => {
       const search = value.toLowerCase();
       const item = row.original;
@@ -46,7 +54,7 @@ const OrderList = () => {
         item.status.toLowerCase().includes(search)
       );
     },
-    initialState: { pagination: { pageIndex: 0, pageSize: 10 } },
+    pageCount: Math.ceil(data.length / pagination.pageSize),
   });
 
   return (
@@ -101,7 +109,15 @@ const OrderList = () => {
       {/* Table */}
       <DataTable table={table} className={orderList.table}>
         <DataTableBody />
-        <DataTableFooter showPageSizeOptions />
+        <DataTableFooter
+          showPageSizeOptions
+          pageSizeOptions={[
+            { label: "5", value: "5" },
+            { label: "10", value: "10" },
+            { label: "20", value: "20" },
+            { label: "50", value: "50" },
+          ]}
+        />
       </DataTable>
     </Box>
   );
