@@ -365,6 +365,23 @@ nav[aria-label="breadcrumb"] * {
     color: #000000 !important; /* Keep dark text on light background */
   }
 
+  /* Input and form controls */
+  input,
+  textarea,
+  select,
+  [class*="input"],
+  [class*="Input"] {
+    color: var(--text-primary) !important;
+    background-color: var(--bg-secondary) !important;
+  }
+
+  /* Axiom Input components */
+  [data-scope="input"],
+  [data-part="input"] {
+    color: var(--text-primary) !important;
+    background-color: var(--bg-secondary) !important;
+  }
+
   /* Override Axiom's color utilities */
   [class*="fg-"] {
     color: var(--text-primary) !important;
