@@ -56,7 +56,7 @@ pnpm install
 pnpm dev
 
 # Open browser
-# http://localhost:5173
+# http://localhost:3000
 ```
 
 ### **Build Commands**
